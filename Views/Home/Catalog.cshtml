@@ -1,0 +1,13 @@
+﻿@model List<Product> 
+@foreach(var p in Model)
+{
+    <div class="card m-2" style="width: 300px;">
+        <img width="100px" src=@p.Image alt="a snow-capped mountain range" />
+      <div class="card-body">
+        <h2 class="card-title">@p.Name</h2>
+        <p class="card-text">@p.Cost</p>
+        <a class="btn btn-secondary">Детали</a>
+        <a href="?id=@(p.id)"class="btn btn-secondary">Добавить в корзину</a>
+      </div>
+    </div>
+}
