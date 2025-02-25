@@ -1,0 +1,16 @@
+﻿@model Product
+
+@if (Model == null)
+{
+    <h3>товара с таким id=@ViewBag.Id не существует</h3>
+}
+else {
+    <div class="card m-2" style="width: 300px;">
+        <img width="100px" src=@Model.Image alt="a snow-capped mountain range" />
+      <div class="card-body">
+        <h2 class="card-title">@Model.Name</h2>
+        <p class="card-text">@Model.Cost</p>
+        <a asp-controller="Home" asp-action="Catalog" class="btn btn-secondary">Добавить в корзину</a>
+      </div>
+    </div>
+}

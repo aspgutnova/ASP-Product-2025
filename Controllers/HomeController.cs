@@ -13,10 +13,12 @@ namespace ShopFood.Controllers
     {
 
         private readonly ILogger<HomeController> _logger;
+        private ProductsRepository productsRepository;
 
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
+            productsRepository = new ProductsRepository();
         }
 
         public IActionResult Index()
@@ -24,11 +26,9 @@ namespace ShopFood.Controllers
             return View();
         }
 
-        public IActionResult Catalog (int id = 0)
+        public IActionResult Catalog()
         {
-            List<Product> products = new ProductRep().GetProducts();
-            if (id != 0)
-                return View("Product",new ProductRep().TryGetById(id));
+            List<Product> products = productsRepository.GetAll();
             return View(products);
         }
 
